@@ -14,7 +14,7 @@ spec:
     path: charts/podinfo
     ref: master
   values:
-    image: fdawsdevus/card-user-service:dev-3fd0c23
+    image: fdawsdevus/card-user-service:dev-c3a5a86
     replicaCount: 1
     hpa:
       enabled: false
