@@ -2,19 +2,19 @@
 apiVersion: flux.weave.works/v1beta1
 kind: HelmRelease
 metadata:
-  name: podinfo-dev
+  name: card-user-service-dev
   namespace: dev
   annotations:
     flux.weave.works/automated: "true"
     flux.weave.works/tag.chart-image: glob:dev-*
 spec:
-  releaseName: podinfo-dev
+  releaseName: card-user-service-dev
   chart:
-    git: git@github.com:stefanprodan/gitops-helm
+    git: git@github.com:roaddemon/gitops-helm
     path: charts/podinfo
     ref: master
   values:
-    image: stefanprodan/podinfo:dev-hdtwcel9
+    image: fdawsdevus/card-user-service:dev-bc19828
     replicaCount: 1
     hpa:
       enabled: false

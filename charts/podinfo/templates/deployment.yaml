@@ -25,12 +25,6 @@ spec:
         - name: {{ .Chart.Name }}
           image: "{{ .Values.image }}"
           imagePullPolicy: {{ .Values.imagePullPolicy }}
-          command:
-            - ./podinfo
-            - -port={{ .Values.service.containerPort }}
-            {{- if .Values.logLevel }}
-            - -debug=true
-            {{- end }}
           env:
           - name: backend_url
             value: {{ .Values.backend }}
@@ -46,9 +40,6 @@ spec:
             httpGet:
               path: /readyz
               port: http
-          volumeMounts:
-          - name: data
-            mountPath: /data
           resources:
 {{ toYaml .Values.resources | indent 12 }}
     {{- with .Values.nodeSelector }}
